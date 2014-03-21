@@ -1,0 +1,140 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import 'fontello.css';
+
+body {
+  background: #00bd7d;
+  color: #efe;
+}
+
+.container {
+  padding: 0px;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.modal {
+  color: #333333;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    border-top: 1px solid #efe;
+    text-align: center;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  background: none;
+  text-align: center;
+}
+
+.jumbotron .btn {
+  font-size: 21px;
+
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.75);
+  border: none;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.weather {
+  text-align: center;
+}
+
+.weather-icon {
+  font-size: 2.5em;
+}
+
+.weather-description {
+  text-transform: capitalize;
+}
+
+.weather-location {
+  margin-bottom: 30px;
+}
+
+p.forecast-day {
+  font-weight: bold;
+}
+
+.forecast-day {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.forecast-day .day-name {
+  font-weight: bold;
+}
+
+.forecast-day .temp {
+  text-align: right;
+}
+
+.forecast-day .icon {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.forecast-day .day-temp-max {
+  font-weight: bold;
+}
+
+.forecast-day .day-temp-min {
+  color: silver;
+}
+
+.forecast-week {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.forecast-week .day-name {
+  font-weight: bold;
+}
+
+.forecast-week .temp {
+  text-align: right;
+}
+
+.forecast-week .icon {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.forecast-week > li {
+  margin-bottom: 10px;
+}
+
+.forecast-week .day-temp-max {
+  font-weight: bold;
+}
+
+.forecast-week .day-temp-min {
+  color: silver;
+}

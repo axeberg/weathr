@@ -1,0 +1,66 @@
+<div class="row weather">
+  <div class="col-lg-1 col-centered">
+    <h5>{{ weather.today }}</h5>
+    <h1>{{ weather.temperature }} &#8451;</h1>
+    <h2 class="weather-description">{{ weather.description }}</h2>
+    <span class="weather-icon"><i class="weather-icon-{{ weather.icon }}"></i></span>
+    <h5 class="weather-location"><a href="" data-toggle="modal" data-target="#myModal">{{ weather.name }}, {{ weather.sys.country }}</a></h5>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title" id="myModalLabel">Change location</h3>
+          </div>
+          <div class="modal-body">
+            <p>Input the name of a location to change </p>
+            <input type="text" name="location" class="form-control" placeholder="Write a city and country here. (e.g. London, UK)" ng-model="location">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="changeLocation(location)">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row forecast">
+  <div class="col-xs-12">
+    <p class="forecast-day">{{ forecast.day }}</p>
+    <hr>
+    <ul class="forecast-day">
+      <li ng-repeat="data in forecastHourly.time.data | filter:hourFilter">
+        <div class="row">
+          <div class="col-xs-4">
+            <span class="day-name">{{ data.hour }}</span>
+          </div>
+          <div class="col-xs-4 icon">
+            <span class="day-icon"><i class="weather-icon-{{ data.weather.icon }}"></i></span>
+          </div>
+          <div class="col-xs-4 temp">
+            <span class="day-temp-max">{{ data.temp.max }}</span>
+            <span class="day-temp-min">{{ data.temp.min }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr>
+    <ul class="forecast-week">
+      <li ng-repeat="day in forecast.weekdays.day | filter:weekdayFilter">
+        <div class="row">
+          <div class="col-xs-4">
+            <span class="day-name">{{ day.name }}</span>
+          </div>
+          <div class="col-xs-4 icon">
+            <span class="day-icon"><i class="weather-icon-{{ day.weather.icon }}"></i></span>
+          </div>
+          <div class="col-xs-4 temp">
+            <span class="day-temp-max">{{ day.temp.max }}</span>
+            <span class="day-temp-min">{{ day.temp.min }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
