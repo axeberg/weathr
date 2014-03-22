@@ -4,7 +4,8 @@ angular.module('weathrApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'google-maps'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

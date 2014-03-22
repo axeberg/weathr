@@ -8,7 +8,7 @@ angular.module('weathrApp')
   var request = function(path) {
     var deferred = $q.defer();
 
-    $http.jsonp(SERVICE_ENDPOINT + path + JSON_P_SUFFIX).
+    $http.jsonp(SERVICE_ENDPOINT + path + JSON_P_SUFFIX, {cache: true}).
       success(function(data, status, headers, config){
         deferred.resolve(data);
       }).
