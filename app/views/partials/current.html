@@ -4,7 +4,7 @@
     <h1>{{ weather.temperature }} &#8451;</h1>
     <h2 class="weather-description">{{ weather.description }}</h2>
     <span class="weather-icon"><i class="weather-icon-{{ weather.icon }}"></i></span>
-    <h5 class="weather-location"><a href="" data-toggle="modal" data-target="#myModal">{{ weather.name }}, {{ weather.sys.country }}</a></h5>
+    <h5 class="weather-location"><a href="" data-toggle="modal" data-target="#myModal" ng-click="$('#myModal').modal('show')">{{ weather.name }}, {{ weather.sys.country }}</a></h5>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

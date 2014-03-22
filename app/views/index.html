@@ -32,6 +32,7 @@
 
     <!-- Add your site or application content here -->
     <div ng-include="'partials/navbar.html'"></div>
+    <div id="loading">LOADING</div>
     <div class="container-fluid" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -59,6 +60,10 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -79,6 +84,7 @@
         <script src="scripts/services/geolocation.js"></script>
         <script src="scripts/services/weather.js"></script>
         <script src="scripts/services/weather-icons.js"></script>
+        <script src="scripts/services/interceptor.js"></script>
         <!-- directives -->
         <script src="scripts/directives/mongooseError.js"></script>
         <!-- endbuild -->
