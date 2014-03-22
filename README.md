@@ -3,7 +3,7 @@ weathr
 
 Weathr is a web-application that uses the Open Weather Map API to display location based weather.
 
-The application is built using the Anuglar Fullstack:
+The application is built using the Angular fullstack:
 
 https://github.com/DaftMonk/generator-angular-fullstack
 
