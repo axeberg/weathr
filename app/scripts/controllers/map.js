@@ -1,16 +1,12 @@
 'use strict';
 
 angular.module('weathrApp')
-  .controller('MapCtrl', function($scope, $http, GeolocationService) {
-    google.maps.visualRefresh = true;
-
-    GeolocationService().then(function(position) {
-      $scope.position = position;
-    });
-
+  .controller('MapCtrl', function($scope, $http) {
     $scope.map = {
-      control: {},
-      showWeather: true,
+      options: {
+        streetViewControl: false,
+        panControl: false
+      },
       center: {
         latitude: 55.6153398,
         longitude: 12.9854959

@@ -89,7 +89,7 @@ angular.module('weathrApp')
        WeatherService.current.byPosition(position.coords.latitude, position.coords.longitude).then(function(data){
          $scope.weather = data;
          $scope.weather.temperature = Math.floor(data.main.temp);
-         $scope.weather.today = moment().format('llll');
+         $scope.weather.today = moment().format('dddd, MMMM Do YYYY, HH:mm');
          $scope.weather.description = data.weather[0].description;
 
          var weatherId = data.weather[0].id;

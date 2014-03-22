@@ -19,7 +19,12 @@ body {
   opacity: .8;
 }
 
-.angular-google-map-container { color: #333333; height: 480px; margin: 0; padding: 0; }
+.angular-google-map-container {
+  color: #333333;
+  height: 370px;
+  margin: 0;
+  padding: 0;
+}
 
 .container {
   padding: 0px;
@@ -154,11 +159,11 @@ p.forecast-day {
 
 @font-face {
   font-family: 'fontello';
-  src: url('fonts/fontello.eot?18056628');
-  src: url('fonts/fontello.eot?18056628#iefix') format('embedded-opentype'),
-       url('fonts/fontello.woff?18056628') format('woff'),
-       url('fonts/fontello.ttf?18056628') format('truetype'),
-       url('fonts/fontello.svg?18056628#fontello') format('svg');
+  src: url('fonts/e9db46e1.fontello.eot');
+  src: url('fonts/e9db46e1.fontello.eot#iefix') format('embedded-opentype'),
+       url('fonts/2bd8496d.fontello.woff') format('woff'),
+       url('fonts/5ff98849.fontello.ttf') format('truetype'),
+       url('fonts/83f3fa53.fontello.svg#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
