@@ -4,11 +4,12 @@ angular.module('weathrApp')
   .factory("WeatherService", function($q, $http) {
   var SERVICE_ENDPOINT = "http://api.openweathermap.org/data/2.5";
   var JSON_P_SUFFIX = "&callback=JSON_CALLBACK"
+  var APPID_SUFFIX = "&APPID=03e62528c0580cc42fb386cd3a6f4f9a"
 
   var request = function(path) {
     var deferred = $q.defer();
 
-    $http.jsonp(SERVICE_ENDPOINT + path + JSON_P_SUFFIX, {cache: true}).
+    $http.jsonp(SERVICE_ENDPOINT + path + JSON_P_SUFFIX + APPID_SUFFIX, {cache: true}).
       success(function(data, status, headers, config){
         deferred.resolve(data);
       }).
