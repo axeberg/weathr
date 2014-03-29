@@ -1,10 +1,23 @@
+<video autoplay loop muted id="bgvid">
+  <source src="/videos/lapse.ogg" type="video/ogg">
+  <source src="/videos/lapse.mp4" type="video/mp4">
+</video>
 <div class="row weather">
   <div class="col-lg-1 col-centered">
     <h5>{{ weather.today }}</h5>
     <h1>{{ weather.temperature }} &#8451;</h1>
-    <h2 class="weather-description">{{ weather.description }}</h2>
+    <h4 class="weather-description">{{ weather.description }}</h4>
+    <div class="row now">
+      <div class="col-xs-12">
+        <ul>
+          <li>Wind: {{ weather.wind.speed }} m/s</li>
+          <li>Humidity: {{ weather.humidity }} %</li>
+        </ul>
+        <i class="weather-icon-fog-sun"></i>{{ weather.sunrise }}, <i class="weather-icon-fog-moon"></i>{{ weather.sunset }}</p>
+      </div>
+    </div>
     <span class="weather-icon"><i class="weather-icon-{{ weather.icon }}"></i></span>
-    <h5 class="weather-location"><a href="" data-toggle="modal" data-target="#myModal" ng-click="$('#myModal').modal('show')">{{ weather.name }}, {{ weather.sys.country }}</a></h5>
+    <button class="btn btn-default btn-lg btn-block weather-location" data-toggle="modal" data-target="#myModal" ng-click="$('#myModal').modal('show')">{{ weather.name }}, {{ weather.sys.country }}</button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -27,6 +40,7 @@
 </div>
 <div class="row forecast">
   <div class="col-xs-12">
+    <p class="forecast-temps pull-right"><strong>High</strong> / <span class="temp-min">Low</span></p>
     <p class="forecast-day">{{ forecast.day }}</p>
     <hr>
     <ul class="forecast-day">

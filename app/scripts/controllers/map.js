@@ -13,5 +13,4 @@ angular.module('weathrApp')
       },
       zoom: 11
     };
-
   });

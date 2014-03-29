@@ -14,7 +14,6 @@ angular.module('weathrApp')
         if(location) {
           $('#myModal').modal('hide');
           WeatherService.current.byCity(location).then(function(data) {
-            console.log(data);
             $scope.weather = data;
             $scope.weather.temperature = Math.floor(data.main.temp);
             $scope.weather.today = moment().format('llll');
@@ -32,11 +31,17 @@ angular.module('weathrApp')
 
             var weatherId = data.weather[0].id;
             $scope.weather.icon = WeatherIconService(weatherId);
+
+            $scope.weather.wind = data.wind;
+            $scope.weather.humidity = data.main.humidity;
+            $scope.weather.airpressure = data.main.pressure;
+            $scope.weather.sunrise = moment.unix(data.sys.sunrise).format('HH:mm');
+            $scope.weather.sunset = moment.unix(data.sys.sunset).format('HH:mm');
           });
 
           WeatherService.forecast.byCity(location).then(function(data){
             $scope.forecast = data;
-            $scope.forecast.day = moment().format('dddd [, Today]');
+            $scope.forecast.day = moment().format('dddd, [Today]');
             $scope.forecast.weekdays = {};
             $scope.forecast.weekdays.day = [];
 
@@ -87,6 +92,8 @@ angular.module('weathrApp')
        if(!position) return;
 
        WeatherService.current.byPosition(position.coords.latitude, position.coords.longitude).then(function(data){
+         console.log(data);
+
          $scope.weather = data;
          $scope.weather.temperature = Math.floor(data.main.temp);
          $scope.weather.today = moment().format('dddd, MMMM Do YYYY, HH:mm');
@@ -94,11 +101,17 @@ angular.module('weathrApp')
 
          var weatherId = data.weather[0].id;
          $scope.weather.icon = WeatherIconService(weatherId);
+
+         $scope.weather.wind = data.wind;
+         $scope.weather.humidity = data.main.humidity;
+         $scope.weather.airpressure = data.main.pressure;
+         $scope.weather.sunrise = moment.unix(data.sys.sunrise).format('HH:mm');
+         $scope.weather.sunset = moment.unix(data.sys.sunset).format('HH:mm');
        });
 
        WeatherService.forecast.byPosition(position.coords.latitude, position.coords.longitude).then(function(data){
          $scope.forecast = data;
-         $scope.forecast.day = moment().format('dddd [, Today]');
+         $scope.forecast.day = moment().format('dddd [,Today]');
          $scope.forecast.weekdays = {};
          $scope.forecast.weekdays.day = [];
 
