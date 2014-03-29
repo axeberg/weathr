@@ -149,6 +149,27 @@ p.forecast-day {
   padding: 0px;
 }
 
+.forecast-week a {
+  color: #efe;
+}
+
+.forecast-week .more {
+  background: rgba(15,15,15,0.3);
+  margin: 10px 0 0 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 8pt;
+}
+
+.forecast-week .more .desc {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.forecast-week .more .humidity {
+  text-align: right;
+}
+
 .forecast-week .day-name {
   font-weight: bold;
 }
@@ -163,7 +184,10 @@ p.forecast-day {
 }
 
 .forecast-week > li {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  background: rgba(0,162,100,0.8);
+  border: 1px solid #15c080;
+  padding: 20px 10px 10px 10px;
 }
 
 .forecast-week .day-temp-max {
@@ -186,7 +210,6 @@ and (min-width : 1224px) {
   }
 
   .jumbotron {
-    background: rgba(0,0,0,0.3);
     height: 300px;
     left: 50%;
     margin-top: -150px; /* negative number 1/2 height */
@@ -228,7 +251,7 @@ and (min-width : 1224px) {
 
   .weather .weather-location {
     width: 300px;
-    margin: 0 auto;
+    margin: 20px auto;
   }
 
   .forecast {
@@ -239,13 +262,36 @@ and (min-width : 1224px) {
     padding: 10px;
     width: 80%;
   }
+
   .forecast .today {
     display: block;
   }
+
   .forecast hr {
     border-width: 3px;
     clear: both;
   }
+
+  .forecast-week > li {
+    background: rgba(25,25,25, 0.5);
+    border: none;
+    cursor: pointer;
+  }
+
+  .forecast-week > li:hover {
+    background: rgba(45,45,45, 0.5);
+  }
+
+  .forecast-week .more {
+    border: none;
+    font-size: 1em;
+    margin: 10px 0 0 0;
+  }
+
+  .forecast-week a {
+    color: #efe;
+  }
+
 }
 
 

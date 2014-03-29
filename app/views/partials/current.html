@@ -7,16 +7,16 @@
     <h5>{{ weather.today }}</h5>
     <h1>{{ weather.temperature }} &#8451;</h1>
     <h4 class="weather-description">{{ weather.description }}</h4>
+    <span class="weather-icon"><i class="weather-icon-{{ weather.icon }}"></i></span>
     <div class="row now">
       <div class="col-xs-12">
         <ul>
-          <li>Wind: {{ weather.wind.speed }} m/s</li>
-          <li>Humidity: {{ weather.humidity }} %</li>
+          <li><strong>Wind</strong>: {{ weather.wind.speed }} m/s</li>
+          <li><strong>Humidity</strong>: {{ weather.humidity }} %</li>
         </ul>
-        <i class="weather-icon-fog-sun"></i>{{ weather.sunrise }}, <i class="weather-icon-fog-moon"></i>{{ weather.sunset }}</p>
+        <strong>Sunrise</strong>: {{ weather.sunrise }} <i class="weather-icon-fog-sun"></i> <br> <strong>Sunset</strong>: {{ weather.sunset }} <i class="weather-icon-fog-moon"></i></p>
       </div>
     </div>
-    <span class="weather-icon"><i class="weather-icon-{{ weather.icon }}"></i></span>
     <button class="btn btn-default btn-lg btn-block weather-location" data-toggle="modal" data-target="#myModal" ng-click="$('#myModal').modal('show')">{{ weather.name }}, {{ weather.sys.country }}</button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -62,6 +62,7 @@
     <hr>
     <ul class="forecast-week">
       <li ng-repeat="day in forecast.weekdays.day | filter:weekdayFilter">
+        <a data-toggle="collapse" data-target="#more-{{ day.id }}">
         <div class="row">
           <div class="col-xs-4">
             <span class="day-name">{{ day.name }}</span>
@@ -74,6 +75,20 @@
             <span class="day-temp-min">{{ day.temp.min }}</span>
           </div>
         </div>
+        <div id="more-{{ day.id }}" class="collapse out">
+          <div class="row more">
+            <div class="col-xs-4">
+              <strong>Wind</strong>:<br> {{ day.wind }} m/s
+            </div>
+            <div class="col-xs-4 desc">
+              {{ day.description }}
+            </div>
+            <div class="col-xs-4 humidity">
+              <strong>Humidity</strong>:<br> {{ day.humidity }} %
+            </div>
+          </div>
+        </div>
+        </a>
       </li>
     </ul>
   </div>

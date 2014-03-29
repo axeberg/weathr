@@ -47,14 +47,19 @@ angular.module('weathrApp')
 
             for(var i=1; i < data.list.length; i++) {
               $scope.forecast.weekdays.day.push({
+                 id: data.list[i].dt,
                  name: moment.unix(data.list[i].dt).format('dddd'),
+                 description: data.list[i].weather[0].description,
+                 humidity: data.list[i].humidity,
+                 pressure: data.list[i].pressure,
                  temp: {
                    max: Math.floor(data.list[i].temp.max),
                    min: parseInt(data.list[i].temp.min)
                  },
                  weather: {
                    icon: WeatherIconService(data.list[i].weather[0].id),
-                 }
+                 },
+                 wind: data.list[i].speed,
               });
             }
 
@@ -92,7 +97,6 @@ angular.module('weathrApp')
        if(!position) return;
 
        WeatherService.current.byPosition(position.coords.latitude, position.coords.longitude).then(function(data){
-         console.log(data);
 
          $scope.weather = data;
          $scope.weather.temperature = Math.floor(data.main.temp);
@@ -104,27 +108,34 @@ angular.module('weathrApp')
 
          $scope.weather.wind = data.wind;
          $scope.weather.humidity = data.main.humidity;
-         $scope.weather.airpressure = data.main.pressure;
+         $scope.weather.airpressure = Math.floor(data.main.pressure);
          $scope.weather.sunrise = moment.unix(data.sys.sunrise).format('HH:mm');
          $scope.weather.sunset = moment.unix(data.sys.sunset).format('HH:mm');
        });
 
        WeatherService.forecast.byPosition(position.coords.latitude, position.coords.longitude).then(function(data){
          $scope.forecast = data;
-         $scope.forecast.day = moment().format('dddd [,Today]');
+         $scope.forecast.day = moment().format('[Today]');
          $scope.forecast.weekdays = {};
          $scope.forecast.weekdays.day = [];
 
+         console.log(data);
+
          for(var i=1; i < data.list.length; i++) {
            $scope.forecast.weekdays.day.push({
+              id: data.list[i].dt,
               name: moment.unix(data.list[i].dt).format('dddd'),
+              description: data.list[i].weather[0].description,
+              humidity: data.list[i].humidity,
+              pressure: Math.floor(data.list[i].pressure),
               temp: {
                 max: Math.floor(data.list[i].temp.max),
                 min: parseInt(data.list[i].temp.min)
               },
               weather: {
                 icon: WeatherIconService(data.list[i].weather[0].id),
-              }
+              },
+              wind: data.list[i].speed,
            });
          }
 
